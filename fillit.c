@@ -6,16 +6,15 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/04 15:00:15 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/04 15:57:09 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define BUFF_SIZE 546
 
 #include <fcntl.h>
-#include <libft.h>
 
-int		read_tetriminos(int const fd, char **file);
+int		read_tetriminos(int const fd, char *file);
 
 int		main(int argc,char **argv)
 {
