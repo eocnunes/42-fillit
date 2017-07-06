@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_tetriminos.c                                  :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/03 23:08:48 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/05 16:43:11 by enunes           ###   ########.fr       */
+/*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
+/*   Updated: 2017/07/06 00:04:27 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <fillit.h>
 
-int		read_tetriminos(int const fd, char *file)
-{
-	int		rb;
-	char	tmp[BUFF_SIZE + 1];
+#ifndef FILLIT_H
+# define FILLIT_H
 
-	rb = read(fd, tmp, BUFF_SIZE);
-	tmp[rb] = '\0';
-//	printf("%s\n", tmp);
-	ft_strcpy(file, tmp);
-	return (0);
-}
+# define BUFF_SIZE 546
+
+# include <unistd.h>
+# include <fcntl.h>
+# include <libft.h>
+
+int		read_tetriminos(int const fd, char *file);
+int		check_tetriminos(char *file);
+int		check_chars(char *file);
+int		check_grid(char *file);
+
+#endif

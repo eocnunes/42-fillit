@@ -6,7 +6,7 @@
 #    By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/04 14:14:26 by enunes            #+#    #+#              #
-#    Updated: 2017/07/04 15:54:40 by enunes           ###   ########.fr        #
+#    Updated: 2017/07/05 15:31:20 by enunes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,19 +17,21 @@ SRCS = 	fillit.c \
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDE = includes/libft.h
+INCLUDE = includes/
+
+LIBFT = libft/
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(OBJS): %.o: %.c
-		@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+		@$(CC) -c $(FLAGS) $< -o $@
 
-$(NAME): $(OBJS)		
-		@$(CC) -o $(NAME) $(FLAGS) $(OBJS) -I includes/ -L libft/ -lft
+$(NAME):		
+		@$(CC) -o $(NAME) $(FLAGS) $(SRCS) -I $(INCLUDE) -I $(LIBFT) -L $(LIBFT) -lft
 
 clean:
 		@rm -f $(OBJS)

@@ -6,21 +6,18 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/04 15:57:09 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/05 16:41:29 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define BUFF_SIZE 546
-
-#include <fcntl.h>
-
-int		read_tetriminos(int const fd, char *file);
+#include <stdio.h>
+#include <fillit.h>
 
 int		main(int argc,char **argv)
 {
 	int 	fd;
 	int		ret;
-	char	*file[BUFF_SIZE];
+	char	file[BUFF_SIZE];
 
 	fd = open(argv[1], O_RDONLY);
 	if (argc != 2)
@@ -30,7 +27,8 @@ int		main(int argc,char **argv)
 	}
 	else
 	{
-		ret = read_tetriminos(fd, &file);
+		ret = read_tetriminos(fd, file);
+		printf("%s", file);
 		if (ret == -1)
 		{
 			ft_putstr("error\n");
