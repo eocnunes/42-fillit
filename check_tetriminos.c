@@ -6,45 +6,41 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/04 19:38:03 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/06 00:04:24 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/06 18:11:54 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		check_grid(char *file)
+#include <fillit.h>
+#include <stdio.h>
+
+int		check_line_width(char *file)
 {
-	int		i;
-	int		grid;
-	int		piece;
-	int		line;
+	int	i;
+	int grid;
 
 	i = 0;
-	piece = 0;
-	line = 4;
+	grid = 0;
 	while (file[i])
 	{
-		while (file[i] != '\n' && file[i + 1] != '\n')
+		if (file[i] == '.' || file[i] == '#')
+			grid++;
+		if (file[i] == '\n')
 		{
+			if (grid != 4)
+				return (0);
 			grid = 0;
-			if (file[i] == '.' || file[i] == '#')
-				grid++;
-			if (file[i] == '#')
-				piece++;
-			if (file[i] == '\n' && file[i + 1] != '\n')
+			if (file[i + 1] == '\n')
 			{
-				if (grid != 4)
-					return (0);
-				grid = 0;
-				line--;
+				grid = 4;
+				i++;
 			}
-			i++;
 		}
-		if (line < 0)
-			return (0);
+		i++;
 	}
-	if (piece != 4)
-		return (0);
 	return (1);
 }
+
+//int		check
 
 int		check_chars(char *file)
 {
@@ -57,14 +53,15 @@ int		check_chars(char *file)
 			return (0);
 		i++;
 	}
+	ft_putstr("Chars Checked\n");
 	return (1);
 }
 
 int		check_tetriminos(char *file)
 {
-	if (!check_chars(*file))
+	if (!check_chars(file))
 		return (0);
-	if (!check_tetriminos(*file))
+	if (!check_line_width(file))
 		return (0);
 	return (1);
 }
