@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/06 00:04:27 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/06 22:42:12 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 int		read_tetriminos(int const fd, char *file);
 int		check_tetriminos(char *file);
 int		check_chars(char *file);
-int		check_grid(char *file);
+int		check_width(char *file);
+int		check_length(char *file);
 
 #endif
