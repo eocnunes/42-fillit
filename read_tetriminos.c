@@ -6,10 +6,10 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 23:08:48 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/06 16:21:59 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/07 19:39:32 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <fillit.h>
 
 int		read_tetriminos(int const fd, char *file)

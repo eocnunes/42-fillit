@@ -6,16 +6,16 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/06 17:34:07 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/08 01:46:50 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <fillit.h>
 
-int		main(int argc,char **argv)
+int		main(int argc, char **argv)
 {
-	int 	fd;
+	int		fd;
 	int		ret;
 	char	file[BUFF_SIZE];
 
@@ -28,7 +28,6 @@ int		main(int argc,char **argv)
 	else
 	{
 		ret = read_tetriminos(fd, file);
-	//	printf("%s", file);
 		if (ret == -1)
 		{
 			ft_putstr("error2\n");
@@ -41,9 +40,9 @@ int		main(int argc,char **argv)
 				ft_putstr("error3\n");
 				return (0);
 			}
-			else
-				printf("File OK\n");
+			setup_puzzle(file);
 		}
 	}
+	printf("File OK\n");
 	return (0);
 }
