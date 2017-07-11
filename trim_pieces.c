@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:45:10 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/09 00:17:23 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/10 18:01:52 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 
 int		bool_strstr(char *src, char *pat)
 {
-	while (*src)
+	int		i;
+	int		j;
+
+	i = 0;
+	while (src[i])
 	{
-		while (*src == *pat)
+		j = 0;
+		while (src[i] == pat[j])
 		{
-			src++;
-			pat++;
-			if (!*pat)
-			{
+			i++;
+			j++;
+			if (!pat[j])
 				return (1);
-			}
 		}
-		src++;
+		i++;
 	}
 	return (0);
 }
@@ -73,9 +76,9 @@ int		valid_pattern(char **src, int pieces)
 		{
 			if (bool_strstr(src[i], pattern[j]))
 			{
+				printf("valid: %d || for: %d\n", j, i);
 				ft_bzero(src[i], ft_strlen(src[i]));
 				ft_strcpy(src[i], pattern[j]);
-				printf("%s\n", src[i]);
 				valid = 1;
 				break ;
 			}
