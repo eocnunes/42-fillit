@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/10 17:33:45 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/14 15:07:09 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int			get_pieces(char *file, char **puzzle);
 char		**setup_puzzle(char *file);
 void		setup_letters(char **puzzle, int num);
 int			valid_pattern(char **src, int pieces);
-void		get_valid(char valid[20][15], int i);
+void		get_valid(char valid[20][14], int i);
 int			bool_strstr(char *src, char *pat);
+void		iplace_tetri(char **grid, char *tetri, int row, int col);
+void		remove_tetri(char **grid, char *tetri);
+int			check_place(char **grid, char *tetri, int row, int col);
 
 #endif

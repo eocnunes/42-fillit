@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_tetriminos.c                                 :+:      :+:    :+:   */
+/*   check_grid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/04 19:38:03 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/06 22:29:18 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/10 22:51:53 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		check_width(char *file)
 		}
 		i++;
 	}
-	ft_putstr("Width Checked\n");
 	return (1);
 }
 
@@ -60,7 +59,6 @@ int		check_length(char *file)
 		}
 		i++;
 	}
-	ft_putstr("Length Checked\n");
 	return (1);
 }
 
@@ -75,6 +73,5 @@ int		check_chars(char *file)
 			return (0);
 		i++;
 	}
-	ft_putstr("Chars Checked\n");
 	return (1);
 }
