@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/14 15:07:09 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/17 20:51:13 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int			bool_strstr(char *src, char *pat);
 void		iplace_tetri(char **grid, char *tetri, int row, int col);
 void		remove_tetri(char **grid, char *tetri);
 int			check_place(char **grid, char *tetri, int row, int col);
+char		**create_grid(int size);
+int			init_size(int tetri);
 
 #endif
