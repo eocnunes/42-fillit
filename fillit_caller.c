@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 22:28:17 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/10 18:01:02 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/17 21:50:53 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,27 @@ void	setup_letters(char **puzzle, int num)
 	}
 }
 
-char	**setup_puzzle(char *file)
+int		setup_puzzle(char *file)
 {
-	int		n;
+	int		num;
 	char	**puzzle;
 
-	n = count_pieces(file);
-	if (n > 26)
+	num = count_pieces(file);
+	if (num > 26)
 	{
 		ft_putstr("error\n");
 		return (0);
 	}
-	puzzle = (char **)malloc(sizeof(char *) * n);
+	puzzle = (char **)malloc(sizeof(char *) * num);
 	if (!puzzle)
 		return (0);
 	if (!get_pieces(file, puzzle))
 		return (0);
-	valid_pattern(puzzle, n);
-	setup_letters(puzzle, n);
-	int i = 0;
-	while(i < n)
-	{
-		printf ("%i: %s\n", i, puzzle[i]);
-		i++;
-	}
-	return (puzzle);
+	valid_pattern(puzzle, num);
+	setup_letters(puzzle, num);
+	print_grid(puzzle, 6);
+	solve(puzzle, num);
+	return (1);
 }
 
 

@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   grid.c                                             :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/14 15:04:42 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/17 22:18:36 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <fillit.h>
 
 void	place_tetri(char **grid, char *tetri, int row, int col)
 {
@@ -35,12 +37,14 @@ void	place_tetri(char **grid, char *tetri, int row, int col)
 
 void	remove_tetri(char **grid, char *tetri)
 {
+	int		i;
 	int		row;
 	int 	col;
 	char	tmp;
 
+	i = 0;
 	row = 0;
-	while (*tetri = '.')
+	while (*tetri == '.')
 		i++;
 	tmp = *tetri;
 	while (grid[row])
@@ -49,7 +53,7 @@ void	remove_tetri(char **grid, char *tetri)
 		while(grid[row][col])
 		{
 			if (grid[row][col] == tmp)
-				board[row][col] = '.';
+				grid[row][col] = '.';
 			col++;
 		}
 		row++;
@@ -76,6 +80,30 @@ int		check_place(char **grid, char *tetri, int row, int col)
 		n++;
 		col++;
 		i++;
+	}
+	return (1);
+}
+
+int		recursion(char **grid, char **puzzle, int row, int col)
+{
+	if (!*puzzle)
+		return (0);
+	while (grid[row])
+	{
+		while (grid[row][col])
+		{
+			if (check_place(grid, *puzzle, row, col))
+			{
+				place_tetri(grid, *puzzle, row, col);
+				if (recursion(grid, (1 + puzzle), 0, 0))
+					remove_tetri(grid, *puzzle);
+				else
+					return (0);
+			}
+			col++;
+		}
+		row++;
+		col = 0;
 	}
 	return (1);
 }
