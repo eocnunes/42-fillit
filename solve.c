@@ -6,10 +6,11 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/17 22:18:36 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 00:57:53 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <fillit.h>
 
 void	place_tetri(char **grid, char *tetri, int row, int col)
@@ -32,28 +33,37 @@ void	place_tetri(char **grid, char *tetri, int row, int col)
 			col = col - 4;
 			n = 0;
 		}
+//		printf("ival: %d\n", i);
 	}
+//	printf("oo\n");
 }
 
-void	remove_tetri(char **grid, char *tetri)
+char	get_letter(char *str)
 {
-	int		i;
-	int		row;
-	int 	col;
-	char	tmp;
+	while (*str == '.')
+		str++;
+	return (*str);
+}
 
+void	remove_tetri(char **grid, char *tetri, int col, int row)
+{
+	char	ch;
+	int		i;
+
+	ch = get_letter(tetri);
 	i = 0;
-	row = 0;
-	while (*tetri == '.')
-		i++;
-	tmp = *tetri;
 	while (grid[row])
 	{
 		col = 0;
-		while(grid[row][col])
+		while (grid[row][col])
 		{
-			if (grid[row][col] == tmp)
+			if (i == 4)
+				return ;
+			if (grid[row][col] == ch)
+			{
+				i++;
 				grid[row][col] = '.';
+			}
 			col++;
 		}
 		row++;
@@ -62,48 +72,55 @@ void	remove_tetri(char **grid, char *tetri)
 
 int		check_place(char **grid, char *tetri, int row, int col)
 {
-	int	i;
-	int	n;
+	int i;
+	int n;
+	int check;
 
 	i = 0;
 	n = 0;
+	check = 0;
 	while (tetri[i])
 	{
+		if (tetri[i] != '.'  && grid[row][col] == '.')
+			check++;
+		i++;
+		col++;
+		n++;
 		if (n == 4)
 		{
 			row++;
-			n = 0;
 			col = col - 4;
+			n = 0;
 		}
-		if (tetri[i] >= 'A' && tetri[i] <= 'Z' && grid[row][col] != '.')
-			return (0);
-		n++;
-		col++;
-		i++;
 	}
-	return (1);
+	if (check == 4)
+		return (1);
+	else
+		return (0);
 }
 
 int		recursion(char **grid, char **puzzle, int row, int col)
 {
 	if (!*puzzle)
-		return (0);
+		return (1);
 	while (grid[row])
 	{
 		while (grid[row][col])
 		{
 			if (check_place(grid, *puzzle, row, col))
 			{
+				printf("check for %s ok\n", *puzzle);
 				place_tetri(grid, *puzzle, row, col);
-				if (recursion(grid, (1 + puzzle), 0, 0))
-					remove_tetri(grid, *puzzle);
+				print_grid(grid, 4);
+				if (recursion(grid, (puzzle + 1), 0, 0))
+					return(1);
 				else
-					return (0);
+					remove_tetri(grid, *puzzle, row, col);
 			}
 			col++;
 		}
 		row++;
 		col = 0;
 	}
-	return (1);
+	return (0);
 }

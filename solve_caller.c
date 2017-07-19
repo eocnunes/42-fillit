@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/17 22:25:37 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 00:04:56 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,23 @@ int		solve(char **puzzle, int num)
 	size_t	grid_size;
 
 	grid_size = init_size(num);
-	ft_putstr("\nX\n");
 	grid = create_grid(grid_size);
 	if (!grid)
 		return (0);
-	ft_putstr("\nX\n");
-	print_grid(grid, num);
-/*	while (!(recursion(puzzle, grid, 0, 0)))
-//	{
-//		grid_size++;
+	while (!(recursion(grid, puzzle, 0, 0)))
+	{
+
+		print_grid(grid, grid_size);
+		grid_size++;
 //		del_grid(grid);
 		grid = create_grid(grid_size);
 		if (!grid)
 			return (0);
 	}
-*/
-	if (check_place(grid, puzzle[0], 0, 3))
-		place_tetri(grid, puzzle[0], 0, 3); 
-	ft_putstr("\nX after\n");
+
+//	if (check_place(grid, puzzle[0], 0, 0))
+//		place_tetri(grid, puzzle[0], 0, 0);
+// 	remove_tetri(grid, puzzle[0], 0, 0);	
 	print_grid(grid, grid_size);
 //	del_grid(grid);
 	return (1);

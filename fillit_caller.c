@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 22:28:17 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/17 21:50:53 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/18 23:53:04 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int		setup_puzzle(char *file)
 		ft_putstr("error\n");
 		return (0);
 	}
-	puzzle = (char **)malloc(sizeof(char *) * num);
+	puzzle = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!puzzle)
 		return (0);
+	puzzle[num] = "\0";
 	if (!get_pieces(file, puzzle))
 		return (0);
 	valid_pattern(puzzle, num);
 	setup_letters(puzzle, num);
-	print_grid(puzzle, 6);
 	solve(puzzle, num);
 	return (1);
 }

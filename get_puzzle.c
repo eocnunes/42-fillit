@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 20:43:18 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/10 17:31:56 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 00:25:19 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		get_pieces(char *file, char **puzzle)
 	j = 0;
 	while (file[i])
 	{
+
 		puzzle[j] = (char *)malloc(sizeof(char) * 16 + 1);
 		if (!puzzle[j])
 			return (0);

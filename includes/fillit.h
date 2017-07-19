@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/17 21:44:57 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/17 22:43:06 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			valid_pattern(char **src, int pieces);
 void		get_valid(char valid[20][14], int i);
 int			bool_strstr(char *src, char *pat);
 void		place_tetri(char **grid, char *tetri, int row, int col);
-void		remove_tetri(char **grid, char *tetri);
+void		remove_tetri(char **grid, char *tetri, int row, int col);
 int			check_place(char **grid, char *tetri, int row, int col);
 char		**create_grid(int size);
 int			init_size(int tetri);
