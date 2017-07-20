@@ -6,10 +6,11 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/19 00:04:56 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 00:43:23 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <fillit.h>
 
 void	print_grid(char **grid, int num)
@@ -41,13 +42,13 @@ void	del_grid(char **grid)
 int		solve(char **puzzle, int num)
 {
 	char	**grid;
-	size_t	grid_size;
-
+	int		grid_size;
+	
 	grid_size = init_size(num);
 	grid = create_grid(grid_size);
 	if (!grid)
 		return (0);
-	while (!(recursion(grid, puzzle, 0, 0)))
+	while (!(recursion(grid, puzzle,  0, 0)))
 	{
 
 		print_grid(grid, grid_size);
@@ -58,8 +59,9 @@ int		solve(char **puzzle, int num)
 			return (0);
 	}
 
-//	if (check_place(grid, puzzle[0], 0, 0))
-//		place_tetri(grid, puzzle[0], 0, 0);
+
+//	if (check_place(grid, puzzle[0], 0, 1))
+//		place_tetri(grid, puzzle[0], 0, 1);
 // 	remove_tetri(grid, puzzle[0], 0, 0);	
 	print_grid(grid, grid_size);
 //	del_grid(grid);

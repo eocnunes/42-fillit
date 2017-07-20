@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/19 21:13:09 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 00:53:18 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	place_tetri(char **grid, char *tetri, int row, int col)
 			col = col - 4;
 			n = 0;
 		}
-//		printf("ival: %d\n", i);
 	}
-//	printf("oo\n");
 }
 
 char	get_letter(char *str)
@@ -72,47 +70,40 @@ void	remove_tetri(char **grid, char *tetri, int row, int col)
 
 int		check_place(char **grid, char *tetri, int row, int col)
 {
-	int i;
-	int n;
-	int check;
+	int		i;
+	int		n;
 
 	i = 0;
 	n = 0;
-	check = 0;
 	while (tetri[i])
 	{
-		if (tetri[i] != '.'  && grid[row][col] == '.')
-			check++;
-		i++;
-		col++;
-		n++;
 		if (n == 4)
 		{
 			row++;
-			col = col - 4;
 			n = 0;
+			col = col - 4;
 		}
+		if (tetri[i] >= 'A' && tetri[i] <= 'Z' && grid[row][col] != '.')
+			return (0);
+		n++;
+		col++;
+		i++;
 	}
-	if (check == 4)
-		return (1);
-	else
-		return (0);
+	return (1);
 }
 
 int		recursion(char **grid, char **puzzle, int row, int col)
 {
-	if (!*puzzle)
+	if (*puzzle == 0)
 		return (1);
-	while (grid[row] != 0)
+	while (grid[row])
 	{
-		while (grid[row][col] != 0)
+		while (grid[row][col])
 		{
 			if (check_place(grid, *puzzle, row, col))
 			{
-				printf("check for %s ok\n", *puzzle);
 				place_tetri(grid, *puzzle, row, col);
-				print_grid(grid, 4);
-				if (!recursion(grid, (puzzle + 1), 0, 0))
+				if (recursion(grid, (puzzle + 1), 0, 0))
 					return (1);
 				else
 					remove_tetri(grid, *puzzle, row, col);
@@ -124,3 +115,4 @@ int		recursion(char **grid, char **puzzle, int row, int col)
 	}
 	return (0);
 }
+
