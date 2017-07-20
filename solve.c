@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/19 00:57:53 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 21:13:09 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	get_letter(char *str)
 	return (*str);
 }
 
-void	remove_tetri(char **grid, char *tetri, int col, int row)
+void	remove_tetri(char **grid, char *tetri, int row, int col)
 {
 	char	ch;
 	int		i;
@@ -103,17 +103,17 @@ int		recursion(char **grid, char **puzzle, int row, int col)
 {
 	if (!*puzzle)
 		return (1);
-	while (grid[row])
+	while (grid[row] != 0)
 	{
-		while (grid[row][col])
+		while (grid[row][col] != 0)
 		{
 			if (check_place(grid, *puzzle, row, col))
 			{
 				printf("check for %s ok\n", *puzzle);
 				place_tetri(grid, *puzzle, row, col);
 				print_grid(grid, 4);
-				if (recursion(grid, (puzzle + 1), 0, 0))
-					return(1);
+				if (!recursion(grid, (puzzle + 1), 0, 0))
+					return (1);
 				else
 					remove_tetri(grid, *puzzle, row, col);
 			}

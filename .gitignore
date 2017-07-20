@@ -1,6 +1,7 @@
 .nfs*
+*.swn
 
-# Prerequisites
+#wsdas Prerequisites
 *.d
 *.swp
 *.swo

@@ -6,12 +6,29 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/17 21:25:56 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 15:35:59 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <fillit.h>
+
+int 	error(void)
+{
+		ft_putstr("error\n");
+		exit(EXIT_FAILURE);
+}
+
+int		read_tetriminos(int const fd, char *file)
+{
+	int		rb;
+	char	tmp[BUFF_SIZE + 1];
+
+	rb = read(fd, tmp, BUFF_SIZE);
+	tmp[rb] = '\0';
+	ft_strcpy(file, tmp);
+	return (0);
+}
 
 int		main(int argc, char **argv)
 {
@@ -19,20 +36,22 @@ int		main(int argc, char **argv)
 	int		ret;
 	char	file[BUFF_SIZE];
 
-	fd = open(argv[1], O_RDONLY);
 	if (argc != 2)
-		ft_putstr("error\n");
+		error();
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0) 
+		error();
 	else
 	{
 		ret = read_tetriminos(fd, file);
 		if (ret < 0)
-			ft_putstr("error\n");
+			error();
 		else
 		{
 			if (!check_tetriminos(file))
-				ft_putstr("error\n");
+				error();
 			if (!setup_puzzle(file))
-				ft_putstr("error\n");
+				error();
 		}
 	}
 	printf("File OK\n");

@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:18:26 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/18 23:03:35 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/19 15:27:07 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ char		**create_grid(int size)
 	char	**grid;
 	int		size_c;
 
+	//printf("SIZE = %d", size);
 	size_c = size + 3;
-	grid = (char **)malloc(sizeof(*grid) * (size_c + 1));
+	grid = (char **)ft_memalloc(sizeof(*grid) * (size_c + 1));
 	if (!grid)
 		return (0);
 	grid[size_c] = "\0";
