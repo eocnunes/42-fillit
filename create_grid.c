@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:18:26 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/20 17:00:40 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 20:37:45 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int		init_size(int tetri)
 	min = tetri * 4;
 	while (min > (i * i))
 		i++;
-	printf("size: %d\n", i);
 	return (i);
 }
 
@@ -48,7 +47,6 @@ char		**create_grid(int size)
 		while (++j < size)
 			grid[i][j] = '.';
 	}
-	printf("I val: %d size_c %d\n", i, size_c);
 	while (i < size_c)
 	{
 		grid[i] = ft_memalloc(size_c);

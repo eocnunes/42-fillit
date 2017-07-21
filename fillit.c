@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/19 15:35:59 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 20:38:26 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ int		main(int argc, char **argv)
 				error();
 		}
 	}
-	printf("File OK\n");
 	return (0);
 }

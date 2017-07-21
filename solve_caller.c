@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 00:43:23 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 20:39:48 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		solve(char **puzzle, int num)
 	while (!(recursion(grid, puzzle,  0, 0)))
 	{
 
-		print_grid(grid, grid_size);
 		grid_size++;
 //		del_grid(grid);
 		grid = create_grid(grid_size);
