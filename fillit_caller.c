@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 22:28:17 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 20:52:39 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 22:10:17 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 int		check_tetriminos(char *file)
 {
-	if (!check_chars(file))
-		return (0);
+	int		pieces;
+
 	if (!check_width(file))
 		return (0);
 	if (!check_length(file))
+		return (0);
+	pieces = count_pieces(file);
+	if (!check_chars(file, pieces))
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/04 19:38:03 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/10 22:51:53 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 22:06:54 by gaguirre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,37 @@ int		check_length(char *file)
 			len++;
 			if (file[i + 1] == '\n')
 			{
-				if (len != 4)
+				if (len != 4 || file [i + 2] == '\0')
 					return (0);
 				len = 0;
 				i++;
 			}
+			if (len > 4)
+				return(0);
 		}
-		i++;
+		i++;	
 	}
 	return (1);
 }
 
-int		check_chars(char *file)
+int		check_chars(char *file, int pieces)
 {
 	int		i;
-
+	int 	num;
+	
 	i = 0;
+	num = 0;
+	if (file[0] == '\0')
+		return (0);
 	while (file[i])
 	{
 		if (file[i] != '#' && file[i] != '.' && file[i] != '\n')
 			return (0);
+		if (file[i] == '#')
+			num++;
 		i++;
 	}
+	if ((num / 4) != pieces)
+		return (0);
 	return (1);
 }
