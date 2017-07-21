@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:45:10 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/20 00:08:17 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 20:50:09 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ int		valid_pattern(char **src, int pieces)
 			j++;
 		}
 		if (!valid)
-		{
-			ft_putstr("\nproblem\n");
 			return (0);
-		}
 	}
 	return (1);
 }

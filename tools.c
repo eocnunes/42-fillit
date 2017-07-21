@@ -1,17 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve_caller.c                                     :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 20:39:48 by gaguirre         ###   ########.fr       */
+/*   Updated: 2017/07/20 21:04:20 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <fillit.h>
+
+int 	error(void)
+{
+		ft_putstr("error\n");
+		exit(EXIT_FAILURE);
+}
+
+int		read_tetriminos(int const fd, char *file)
+{
+	int		rb;
+	char	tmp[BUFF_SIZE + 1];
+
+	rb = read(fd, tmp, BUFF_SIZE);
+	tmp[rb] = '\0';
+	ft_strcpy(file, tmp);
+	return (0);
+}
 
 void	print_grid(char **grid, int num)
 {
@@ -52,17 +69,10 @@ int		solve(char **puzzle, int num)
 	{
 
 		grid_size++;
-//		del_grid(grid);
 		grid = create_grid(grid_size);
 		if (!grid)
 			return (0);
 	}
-
-
-//	if (check_place(grid, puzzle[0], 0, 1))
-//		place_tetri(grid, puzzle[0], 0, 1);
-// 	remove_tetri(grid, puzzle[0], 0, 0);	
 	print_grid(grid, grid_size);
-//	del_grid(grid);
 	return (1);
 }

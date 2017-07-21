@@ -6,28 +6,31 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 20:38:26 by gaguirre         ###   ########.fr       */
+/*   Updated: 2017/07/20 21:03:54 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
 
-int 	error(void)
+int		setup_puzzle(char *file)
 {
-		ft_putstr("error\n");
-		exit(EXIT_FAILURE);
-}
+	int		num;
+	char	**puzzle;
 
-int		read_tetriminos(int const fd, char *file)
-{
-	int		rb;
-	char	tmp[BUFF_SIZE + 1];
-
-	rb = read(fd, tmp, BUFF_SIZE);
-	tmp[rb] = '\0';
-	ft_strcpy(file, tmp);
-	return (0);
+	num = count_pieces(file);
+	if (num > 26)
+		return (0);
+	puzzle = (char **)ft_memalloc(sizeof(char *) * (num + 1));
+	if (!puzzle)
+		return (0);
+	if (!get_pieces(file, puzzle))
+		return (0);
+	if (!valid_pattern(puzzle, num))
+		return (0);
+	setup_letters(puzzle, num);
+	if (!solve(puzzle, num))
+		return (0);
+	return (1);
 }
 
 int		main(int argc, char **argv)

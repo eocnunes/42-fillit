@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/05 14:27:59 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 00:46:47 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/20 20:54:28 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int			solve(char **puzzle, int num);
 void		print_grid(char **grid, int num);
 void		del_grid(char **grid);
 int			recursion(char **grid, char **puzzle, int row, int col);
+int			error(void);
+char		get_letter(char *str);
 
 #endif

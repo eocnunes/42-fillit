@@ -6,7 +6,7 @@
 #    By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/04 14:14:26 by enunes            #+#    #+#              #
-#    Updated: 2017/07/19 15:36:18 by enunes           ###   ########.fr        #
+#    Updated: 2017/07/20 21:02:54 by enunes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = 	fillit.c \
 		trim_pieces.c \
 		create_grid.c \
 		solve.c \
-		solve_caller.c \
+		tools.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -29,7 +29,7 @@ LIBFT = libft/
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g -I includes -I libft/
+FLAGS = -Wall -Wextra -Werror -I includes -I libft/
 
 all: $(NAME)
 
