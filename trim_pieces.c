@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:45:10 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/20 20:50:09 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/27 18:18:11 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,18 @@ void	get_valid(char valid[20][14], int i)
 
 int		valid_pattern(char **src, int pieces)
 {
-	int 	i;
-	int 	j;
-	int 	valid;
-	char 	pattern[20][14];
+	int		i;
+	int		j;
+	int		valid;
+	char	pattern[20][14];
 
 	i = -1;
 	get_valid(pattern, -1);
 	while (++i < pieces)
 	{
-		j = 0;
+		j = -1;
 		valid = 0;
-		while (j < 19)
+		while (++j < 19)
 		{
 			if (bool_strstr(src[i], pattern[j]))
 			{
@@ -80,7 +80,6 @@ int		valid_pattern(char **src, int pieces)
 				valid = 1;
 				break ;
 			}
-			j++;
 		}
 		if (!valid)
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 15:06:09 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/27 18:25:37 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	place_tetri(char **grid, char *tetri, int row, int col)
 	n = 0;
 	while (tetri[i])
 	{
-		if(tetri[i] != '.')
+		if (tetri[i] != '.')
 			grid[row][col] = tetri[i];
 		i++;
 		col++;
@@ -115,4 +115,3 @@ int		recursion(char **grid, char **puzzle, int row, int col)
 	}
 	return (0);
 }
-

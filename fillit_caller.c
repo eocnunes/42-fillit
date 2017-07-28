@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 22:28:17 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 22:10:17 by gaguirre         ###   ########.fr       */
+/*   Updated: 2017/07/27 18:16:42 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	setup_letters(char **puzzle, int num)
 	while (i < num)
 	{
 		j = 0;
-		while(puzzle[i][j])
+		while (puzzle[i][j])
 		{
 			if (puzzle[i][j] == '\0')
 				break ;
-			if(puzzle[i][j] == '#')
+			if (puzzle[i][j] == '#')
 				puzzle[i][j] = (65 + i);
 			j++;
 		}

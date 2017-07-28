@@ -6,7 +6,7 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 20:43:18 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/20 20:18:23 by gaguirre         ###   ########.fr       */
+/*   Updated: 2017/07/27 18:19:25 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int		create_piece(char *grid, char *file)
 	i = 0;
 	while (j <= 16)
 	{
-		if (file[i] == '.' || file[i] == '#') {
+		if (file[i] == '.' || file[i] == '#')
+		{
 			grid[j] = file[i];
 			j++;
 		}
@@ -67,7 +68,6 @@ int		get_pieces(char *file, char **puzzle)
 	j = 0;
 	while (file[i])
 	{
-
 		puzzle[j] = (char *)ft_memalloc(sizeof(char) * 16 + 1);
 		if (!puzzle[j])
 			return (0);

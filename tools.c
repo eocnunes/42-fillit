@@ -6,17 +6,17 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 21:04:20 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/27 18:24:24 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <fillit.h>
 
-int 	error(void)
+int		error(void)
 {
-		ft_putstr("error\n");
-		exit(EXIT_FAILURE);
+	ft_putstr("error\n");
+	exit(EXIT_FAILURE);
 }
 
 int		read_tetriminos(int const fd, char *file)
@@ -35,7 +35,7 @@ void	print_grid(char **grid, int num)
 	int	i;
 
 	i = 0;
-	while(i < num)
+	while (i < num)
 	{
 		ft_putstr(grid[i]);
 		ft_putchar('\n');
@@ -60,14 +60,13 @@ int		solve(char **puzzle, int num)
 {
 	char	**grid;
 	int		grid_size;
-	
+
 	grid_size = init_size(num);
 	grid = create_grid(grid_size);
 	if (!grid)
 		return (0);
-	while (!(recursion(grid, puzzle,  0, 0)))
+	while (!(recursion(grid, puzzle, 0, 0)))
 	{
-
 		grid_size++;
 		grid = create_grid(grid_size);
 		if (!grid)

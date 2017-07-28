@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 22:44:05 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/20 21:03:54 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/27 18:13:06 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		error();
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0) 
+	if (fd < 0)
 		error();
 	else
 	{
