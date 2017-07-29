@@ -6,11 +6,10 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/29 15:05:58 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:14:36 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
 
 int		error(void)
