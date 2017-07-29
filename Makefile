@@ -6,7 +6,7 @@
 #    By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/04 14:14:26 by enunes            #+#    #+#              #
-#    Updated: 2017/07/27 18:32:10 by enunes           ###   ########.fr        #
+#    Updated: 2017/07/29 14:09:13 by gaguirre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,26 +23,26 @@ SRCS = 	fillit.c \
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDE = includes/
-
 LIBFT = libft/
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -I includes -I libft/
+CFLAGS = -Wall -Wextra -Werror -I includes -I libft/
+LDFLAGS = -L $(LIBFT) -lft
 
 all: $(NAME)
 
 %.o: %.c
-		@$(CC) -c $(FLAGS) $< -o $@
+		@$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS)
-		@$(CC) -o $(NAME) $(FLAGS) $(OBJS) -I $(INCLUDE) -I $(LIBFT) -L $(LIBFT) -lft
+		@$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(NAME)
+		@echo "fillit made"
 
 clean:
-		@rm -f $(OBJS)
+		@rm -rf $(OBJS)
 
 fclean: clean
-		@rm -f $(NAME)
+		@rm -rf $(NAME)
 
 re: fclean all
