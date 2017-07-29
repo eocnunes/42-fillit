@@ -6,11 +6,10 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 20:43:18 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/27 18:19:25 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:02:59 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
 
 int		count_pieces(char *file)

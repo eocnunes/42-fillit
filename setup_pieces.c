@@ -6,12 +6,46 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:45:10 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/27 18:18:11 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:02:09 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
+
+int		check_tetriminos(char *file)
+{
+	int		pieces;
+
+	if (!check_width(file))
+		return (0);
+	if (!check_length(file))
+		return (0);
+	pieces = count_pieces(file);
+	if (!check_chars(file, pieces))
+		return (0);
+	return (1);
+}
+
+void	setup_letters(char **puzzle, int num)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (i < num)
+	{
+		j = 0;
+		while (puzzle[i][j])
+		{
+			if (puzzle[i][j] == '\0')
+				break ;
+			if (puzzle[i][j] == '#')
+				puzzle[i][j] = (65 + i);
+			j++;
+		}
+		i++;
+	}
+}
 
 int		bool_strstr(char *src, char *pat)
 {

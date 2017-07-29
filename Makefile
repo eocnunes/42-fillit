@@ -6,17 +6,16 @@
 #    By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/04 14:14:26 by enunes            #+#    #+#              #
-#    Updated: 2017/07/29 14:09:13 by gaguirre         ###   ########.fr        #
+#    Updated: 2017/07/29 15:07:11 by enunes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRCS = 	fillit.c \
-		fillit_caller.c \
 		check_grid.c \
 		get_puzzle.c \
-		trim_pieces.c \
+		setup_pieces.c \
 		create_grid.c \
 		solve.c \
 		tools.c \

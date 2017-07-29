@@ -6,12 +6,11 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/04 19:38:03 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/27 18:17:01 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:03:51 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fillit.h>
-#include <stdio.h>
 
 int		check_width(char *file)
 {

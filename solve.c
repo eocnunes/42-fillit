@@ -6,11 +6,10 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/10 23:22:32 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/27 18:25:37 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:03:21 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
 
 void	place_tetri(char **grid, char *tetri, int row, int col)
@@ -34,13 +33,6 @@ void	place_tetri(char **grid, char *tetri, int row, int col)
 			n = 0;
 		}
 	}
-}
-
-char	get_letter(char *str)
-{
-	while (*str == '.')
-		str++;
-	return (*str);
 }
 
 void	remove_tetri(char **grid, char *tetri, int row, int col)
@@ -114,4 +106,24 @@ int		recursion(char **grid, char **puzzle, int row, int col)
 		col = 0;
 	}
 	return (0);
+}
+
+int		solve(char **puzzle, int num)
+{
+	char	**grid;
+	int		grid_size;
+
+	grid_size = init_size(num);
+	grid = create_grid(grid_size);
+	if (!grid)
+		return (0);
+	while (!(recursion(grid, puzzle, 0, 0)))
+	{
+		grid_size++;
+		grid = create_grid(grid_size);
+		if (!grid)
+			return (0);
+	}
+	print_grid(grid, grid_size);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 13:03:21 by enunes            #+#    #+#             */
-/*   Updated: 2017/07/27 18:24:24 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:05:58 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,9 @@ void	print_grid(char **grid, int num)
 	}
 }
 
-void	del_grid(char **grid)
+char	get_letter(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (grid[i])
-	{
-		free(grid[i]);
-		i++;
-	}
-	free(grid);
-}
-
-int		solve(char **puzzle, int num)
-{
-	char	**grid;
-	int		grid_size;
-
-	grid_size = init_size(num);
-	grid = create_grid(grid_size);
-	if (!grid)
-		return (0);
-	while (!(recursion(grid, puzzle, 0, 0)))
-	{
-		grid_size++;
-		grid = create_grid(grid_size);
-		if (!grid)
-			return (0);
-	}
-	print_grid(grid, grid_size);
-	return (1);
+	while (*str == '.')
+		str++;
+	return (*str);
 }

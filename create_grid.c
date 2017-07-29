@@ -6,11 +6,10 @@
 /*   By: gaguirre <gio_aguirre19@yahoo.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:18:26 by gaguirre          #+#    #+#             */
-/*   Updated: 2017/07/27 18:22:23 by enunes           ###   ########.fr       */
+/*   Updated: 2017/07/29 15:04:13 by enunes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <fillit.h>
 
 int			init_size(int tetri)
