@@ -6,11 +6,19 @@
 #    By: enunes <eocnunes@gmail.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/04 14:14:26 by enunes            #+#    #+#              #
-#    Updated: 2017/07/29 15:07:11 by enunes           ###   ########.fr        #
+#    Updated: 2017/08/10 23:39:57 by gaguirre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
+
+LIBFT = libft/
+
+LIBRE = make -C $(LIBFT) re
+
+LIBC = make -C $(LIBFT) clean
+
+LIBFC= make -C $(LIBFT) fclean
 
 SRCS = 	fillit.c \
 		check_grid.c \
@@ -19,29 +27,24 @@ SRCS = 	fillit.c \
 		create_grid.c \
 		solve.c \
 		tools.c \
-
-OBJS = $(SRCS:.c=.o)
-
-LIBFT = libft/
+		$(LIBFT)libft.a \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I includes -I libft/
-LDFLAGS = -L $(LIBFT) -lft
+CFLAGS = -Wall -Wextra -Werror -o -I includes
 
 all: $(NAME)
 
-%.o: %.c
-		@$(CC) -c $(CFLAGS) $< -o $@
-
-$(NAME): $(OBJS)
-		@$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(NAME)
+$(NAME):
+		@$(LIBRE)
+		@$(CC) $(CFLAGS) $(NAME) $(SRCS)
 		@echo "fillit made"
 
 clean:
-		@rm -rf $(OBJS)
+		@$(LIBC)
 
 fclean: clean
-		@rm -rf $(NAME)
+		@$(LIBFC)
+		@/bin/rm -f $(NAME)
 
 re: fclean all
